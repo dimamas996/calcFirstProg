@@ -10,12 +10,12 @@ body {
 .all {    
     margin: 50px auto auto auto;    
     padding: 5px;
-    width: 25%;    
+    width: 250px;    
     border-width: 1px;
     border-color: black;
     border-style: solid;
     border-radius: 5px;
-    background-color: gray;
+    background-color: #cccccc;
 }
 
 input {
