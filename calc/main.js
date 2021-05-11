@@ -1,43 +1,102 @@
-let counter = document.getElementById('counter');
-counter.value = 0;
+let counter = 0;
+let nextNumber = 0;
+let condition = false;
+let negativCondition = false;
 
 //Основные вычисления
-function counting(action) {  
-  let nextNumber;
-  let element;  
-  let counter;
+function counting(actionNext) {  
+  let element;   
+  let action = document.getElementById("screen").value;
+  action = action.substring(action.length - 1);
+  nextNumber = takingNumber();
   switch (action) {
     case '+':
-      nextNumber = takingNumber();
-      counter = document.getElementById('counter');
-      counter.value = parseFloat(counter.value) + nextNumber;      
-      element = document.getElementById("screen");
-      element.value = counter.value.toString() + "+";
-      element = document.getElementById("input");
-      element.value = "";
+      counter += nextNumber;      
     break;
     case '-':
-      ;
+      counter -= nextNumber;      
     break;
-    case '=':
-      counter = document.getElementById('counter');
-      counter.value = parseFloat(counter.value) + parseFloat(document.getElementById("input").value);
-      element = document.getElementById("screen");
-      element.value = counter.value;
-      element = document.getElementById("input");
-      element.value = "";
-      counter.value = 0;
+    case '*':
+      counter *= nextNumber;      
     break;
-  }  
+    case '/':
+      counter /= nextNumber;      
+    break;
+    default:
+      counter = nextNumber;      
+    break;
+  }
+  element = document.getElementById("screen");
+  element.value = counter.toString() + actionNext;
+  element = document.getElementById("input");
+  element.value = "";  
 }
-//Взятие числа из нижнего инпута
-function takingNumber() {
+
+//При нажатии равно
+function equal() {
+  condition = true;  
+  let action = document.getElementById("screen").value;
+  action = action.substring(action.length - 1);
+  nextNumber = takingNumber();
+  let element;
+  element = document.getElementById("screen");
+  element.value += nextNumber.toString() + "=";
+  switch (action) {
+    case '+':
+      counter += nextNumber;      
+    break;
+    case '-':      
+      counter -= nextNumber;      
+    break;
+    case '*':      
+      counter *= nextNumber;      
+    break;
+    case '/':      
+      counter /= nextNumber;      
+    break;
+    default:
+      element = document.getElementById("screen");
+      element.value = "";
+      counter=nextNumber;      
+    break;      
+  }
+  element = document.getElementById("screen");
+  element.value += counter.toString();
+  element = document.getElementById("input");
+  element.value = "";      
+  counter = 0;
+  nextNumber = 0;
+}
+
+//Добавление знака минус перед числом
+function negativ () {
   let element = document.getElementById("input");
+  if (negativCondition == false) {  
+  element.value = "-" + element.value
+  negativCondition = true;
+  } else {
+    element.value = element.value.substring(1, element.value.length);
+    negativCondition = false;
+  }
+}
+
+//Взятие числа из нижнего инпута
+function takingNumber() {  
+  let element = document.getElementById("input");
+  if (element.value == "") {
+    element.value = 0;
+  }
   return parseFloat(element.value);
 }
 //Ввод цифр в нижний инпут
 function enterFromButton(number) {
-  let element = document.getElementById("input");
+  let element;
+  if (condition == true) {
+    element = document.getElementById("screen");
+    element.value = "";
+    condition = false;
+  }  
+ element = document.getElementById("input");
   element.value += number;
 }
 //Удалить всё из обоих инпутов
@@ -46,6 +105,8 @@ function clearing() {
   element.value = "";
   element = document.getElementById("screen");
   element.value = "";
+  counter = 0;
+  nextNumber = 0;
 }
 //Удаление символа
 function delSym() {
