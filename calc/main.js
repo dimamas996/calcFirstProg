@@ -4,7 +4,7 @@ let condition = false;
 let negativCondition = false;
 
 //Основные вычисления
-function counting(actionNext) {
+function counting(actionNext) {  
   let element;
   let action = document.getElementById("screen").value;
   action = action.substring(action.length - 1);
@@ -26,22 +26,22 @@ function counting(actionNext) {
       counter *= 10;
       nextNumber *= 10;
       counter *= nextNumber;
-      counter /= 10;
+      counter /= 100;
       break;
     case "/":
       counter *= 10;
       nextNumber *= 10;
-      counter /= nextNumber;
-      counter /= 10;
+      counter /= nextNumber;      
       break;
     default:
       counter = nextNumber;
       break;
   }
   element = document.getElementById("screen");
-  element.value = counter.toString() + actionNext;
+  element.value = counter.toString() + " " + actionNext;
   element = document.getElementById("input");
   element.value = "";
+  negativCondition = false;
 }
 
 //При нажатии равно
@@ -52,7 +52,7 @@ function equal() {
   nextNumber = takingNumber();
   let element;
   element = document.getElementById("screen");
-  element.value += nextNumber.toString() + "=";
+  element.value = element.value + " " + nextNumber.toString() + " " + "=";
   switch (action) {
     case "+":
       counter *= 10;
@@ -70,13 +70,12 @@ function equal() {
       counter *= 10;
       nextNumber *= 10;
       counter *= nextNumber;
-      counter /= 10;
+      counter /= 100;
       break;
     case "/":
       counter *= 10;
       nextNumber *= 10;
-      counter /= nextNumber;
-      counter /= 10;
+      counter /= nextNumber;      
       break;
     default:
       element = document.getElementById("screen");
@@ -85,11 +84,12 @@ function equal() {
       break;
   }
   element = document.getElementById("screen");
-  element.value += counter.toString();
+  element.value += " " + counter.toString();
   element = document.getElementById("input");
   element.value = "";
   counter = 0;
   nextNumber = 0;
+  negativCondition = false;
 }
 
 //Добавление знака минус перед числом
