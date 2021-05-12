@@ -11,16 +11,28 @@ function counting(actionNext) {
   nextNumber = takingNumber();
   switch (action) {
     case '+':
-      counter += nextNumber;      
+      counter *= 10;
+      nextNumber *= 10;
+      counter += nextNumber;
+      counter /= 10;      
     break;
     case '-':
-      counter -= nextNumber;      
+      counter *= 10;
+      nextNumber *= 10;
+      counter -= nextNumber;
+      counter /= 10;      
     break;
     case '*':
-      counter *= nextNumber;      
+      counter *= 10;
+      nextNumber *= 10;
+      counter *= nextNumber;
+      counter /= 10;      
     break;
     case '/':
-      counter /= nextNumber;      
+      counter *= 10;
+      nextNumber *= 10;
+      counter /= nextNumber;
+      counter /= 10;      
     break;
     default:
       counter = nextNumber;      
@@ -43,16 +55,28 @@ function equal() {
   element.value += nextNumber.toString() + "=";
   switch (action) {
     case '+':
-      counter += nextNumber;      
+      counter *= 10;
+      nextNumber *= 10;
+      counter += nextNumber;
+      counter /= 10;      
     break;
-    case '-':      
-      counter -= nextNumber;      
+    case '-':
+      counter *= 10;
+      nextNumber *= 10;      
+      counter -= nextNumber;
+      counter /= 10;      
     break;
-    case '*':      
-      counter *= nextNumber;      
+    case '*':
+      counter *= 10;
+      nextNumber *= 10;      
+      counter *= nextNumber;
+      counter /= 10;      
     break;
-    case '/':      
-      counter /= nextNumber;      
+    case '/':
+      counter *= 10;
+      nextNumber *= 10;      
+      counter /= nextNumber;
+      counter /= 10;      
     break;
     default:
       element = document.getElementById("screen");

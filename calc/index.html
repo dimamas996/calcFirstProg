@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css">
-  <title>Calc</title>
+  <title>Calculator</title>
   <script src="main.js" defer></script>
 </head>
 
@@ -13,24 +13,25 @@
     <input class="screen" readonly id="screen" type="text">
     <input class="input" readonly placeholder="Введите цифры кнопками" id="input" type="text">
     <div class="buttons">
-      <button onclick="counting('+')">+</button>
-      <button onclick="counting('-')">-</button>
-      <button onclick="counting('*')">*</button>
-      <button onclick="counting('/')">/</button>
-      <button onclick="equal()">=</button>
-      <button onclick="negativ()">+/-</button>      
-      <button onclick="enterFromButton('9')">9</button>
-      <button onclick="enterFromButton('8')">8</button>
-      <button onclick="enterFromButton('7')">7</button>
-      <button onclick="enterFromButton('6')">6</button>
-      <button onclick="enterFromButton('5')">5</button>
-      <button onclick="enterFromButton('4')">4</button>
-      <button onclick="enterFromButton('3')">3</button>
-      <button onclick="enterFromButton('2')">2</button>
-      <button onclick="enterFromButton('1')">1</button>
-      <button onclick="enterFromButton('.')">.</button>
-      <button onclick="enterFromButton('0')">0</button>      
+      <button class="btn-item" onclick="enterFromButton('7')">7</button>
+      <button class="btn-item" onclick="enterFromButton('8')">8</button>
+      <button class="btn-item" onclick="enterFromButton('9')">9</button>
+      <button class="btn-item" onclick="counting('+')">+</button>
+      <button class="btn-item" onclick="enterFromButton('4')">4</button>
+      <button class="btn-item" onclick="enterFromButton('5')">5</button>
+      <button class="btn-item" onclick="enterFromButton('6')">6</button>
+      <button class="btn-item" onclick="counting('-')">-</button>
+      <button class="btn-item" onclick="enterFromButton('1')">1</button>
+      <button class="btn-item" onclick="enterFromButton('2')">2</button>
+      <button class="btn-item" onclick="enterFromButton('3')">3</button>
+      <button class="btn-item" onclick="counting('*')">*</button>
+      <button class="btn-item" onclick="enterFromButton('0')">0</button>  
+      <button class="btn-item" onclick="enterFromButton('.')">.</button>
+      <button class="btn-item" onclick="negativ()">+/-</button>     
+      <button class="btn-item" onclick="counting('/')">/</button>      
+          
     </div>
+    <button onclick="equal()" class="clear">=</button>
     <button onclick="delSym()" class="clear">del</button>
     <button onclick="clearing()" class="clear">Clear</button>
   </div>  
