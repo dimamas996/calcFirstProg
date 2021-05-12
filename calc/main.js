@@ -4,49 +4,49 @@ let condition = false;
 let negativCondition = false;
 
 //Основные вычисления
-function counting(actionNext) {  
-  let element;   
+function counting(actionNext) {
+  let element;
   let action = document.getElementById("screen").value;
   action = action.substring(action.length - 1);
   nextNumber = takingNumber();
   switch (action) {
-    case '+':
+    case "+":
       counter *= 10;
       nextNumber *= 10;
       counter += nextNumber;
-      counter /= 10;      
-    break;
-    case '-':
+      counter /= 10;
+      break;
+    case "-":
       counter *= 10;
       nextNumber *= 10;
       counter -= nextNumber;
-      counter /= 10;      
-    break;
-    case '*':
+      counter /= 10;
+      break;
+    case "*":
       counter *= 10;
       nextNumber *= 10;
       counter *= nextNumber;
-      counter /= 10;      
-    break;
-    case '/':
+      counter /= 10;
+      break;
+    case "/":
       counter *= 10;
       nextNumber *= 10;
       counter /= nextNumber;
-      counter /= 10;      
-    break;
+      counter /= 10;
+      break;
     default:
-      counter = nextNumber;      
-    break;
+      counter = nextNumber;
+      break;
   }
   element = document.getElementById("screen");
   element.value = counter.toString() + actionNext;
   element = document.getElementById("input");
-  element.value = "";  
+  element.value = "";
 }
 
 //При нажатии равно
 function equal() {
-  condition = true;  
+  condition = true;
   let action = document.getElementById("screen").value;
   action = action.substring(action.length - 1);
   nextNumber = takingNumber();
@@ -54,50 +54,50 @@ function equal() {
   element = document.getElementById("screen");
   element.value += nextNumber.toString() + "=";
   switch (action) {
-    case '+':
+    case "+":
       counter *= 10;
       nextNumber *= 10;
       counter += nextNumber;
-      counter /= 10;      
-    break;
-    case '-':
+      counter /= 10;
+      break;
+    case "-":
       counter *= 10;
-      nextNumber *= 10;      
+      nextNumber *= 10;
       counter -= nextNumber;
-      counter /= 10;      
-    break;
-    case '*':
+      counter /= 10;
+      break;
+    case "*":
       counter *= 10;
-      nextNumber *= 10;      
+      nextNumber *= 10;
       counter *= nextNumber;
-      counter /= 10;      
-    break;
-    case '/':
+      counter /= 10;
+      break;
+    case "/":
       counter *= 10;
-      nextNumber *= 10;      
+      nextNumber *= 10;
       counter /= nextNumber;
-      counter /= 10;      
-    break;
+      counter /= 10;
+      break;
     default:
       element = document.getElementById("screen");
       element.value = "";
-      counter=nextNumber;      
-    break;      
+      counter = nextNumber;
+      break;
   }
   element = document.getElementById("screen");
   element.value += counter.toString();
   element = document.getElementById("input");
-  element.value = "";      
+  element.value = "";
   counter = 0;
   nextNumber = 0;
 }
 
 //Добавление знака минус перед числом
-function negativ () {
+function negativ() {
   let element = document.getElementById("input");
-  if (negativCondition == false) {  
-  element.value = "-" + element.value
-  negativCondition = true;
+  if (negativCondition == false) {
+    element.value = "-" + element.value;
+    negativCondition = true;
   } else {
     element.value = element.value.substring(1, element.value.length);
     negativCondition = false;
@@ -105,7 +105,7 @@ function negativ () {
 }
 
 //Взятие числа из нижнего инпута
-function takingNumber() {  
+function takingNumber() {
   let element = document.getElementById("input");
   if (element.value == "") {
     element.value = 0;
@@ -119,8 +119,8 @@ function enterFromButton(number) {
     element = document.getElementById("screen");
     element.value = "";
     condition = false;
-  }  
- element = document.getElementById("input");
+  }
+  element = document.getElementById("input");
   element.value += number;
 }
 //Удалить всё из обоих инпутов
@@ -135,6 +135,5 @@ function clearing() {
 //Удаление символа
 function delSym() {
   let element = document.getElementById("input");
-  element.value = element.value.substring(0, element.value.length - 1);  
+  element.value = element.value.substring(0, element.value.length - 1);
 }
-
