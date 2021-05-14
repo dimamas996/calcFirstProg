@@ -4,7 +4,7 @@ let condition = false;
 let negativCondition = false;
 
 //Основные вычисления
-function counting(actionNext) {  
+function counting(actionNext) {
   let element;
   let action = document.getElementById("screen").value;
   action = action.substring(action.length - 1);
@@ -31,7 +31,11 @@ function counting(actionNext) {
     case "/":
       counter *= 10;
       nextNumber *= 10;
-      counter /= nextNumber;      
+      if ((counter == 0) && (nextNumber == 0)) {
+        counter = "Infinity";
+      } else {
+      counter /= nextNumber;
+      }
       break;
     default:
       counter = nextNumber;
@@ -75,7 +79,11 @@ function equal() {
     case "/":
       counter *= 10;
       nextNumber *= 10;
-      counter /= nextNumber;      
+      if ((counter == 0) && (nextNumber == 0)) {
+        counter = "Infinity";
+      } else {
+      counter /= nextNumber;
+      }
       break;
     default:
       element = document.getElementById("screen");
@@ -135,5 +143,9 @@ function clearing() {
 //Удаление символа
 function delSym() {
   let element = document.getElementById("input");
-  element.value = element.value.substring(0, element.value.length - 1);
+  if (element.value.substring(element.value.length-1) === "-") {
+    negativ();
+  } else {    
+    element.value = element.value.substring(0, element.value.length - 1);
+  }
 }
